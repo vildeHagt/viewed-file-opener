@@ -1,19 +1,18 @@
-const actionBar = document.getElementsByClassName("ActionBar")[0];
+const viewedFile = document.getElementById("manifest.json-viewed-file");
 
-if (actionBar) {
-  console.log("ActionBar found");
+console.log("ActionBar found");
 
-  const button = document.createElement("button");
-  button.type = "button";
-  button.style.backgroundColor = "transparent";
-  button.style.border = "none";
-  button.textContent = "✨";
+const buttonDiv = document.getElementsByClassName(
+  "flex-grow-0 flex-shrink-0 pr-review-tools"
+)[0];
+const button = document.createElement("button");
+button.type = "button";
+button.style.backgroundColor = "#212830";
+button.style.borderColor = "#3d444d";
+button.textContent = "Open Viewed files";
 
-  button.addEventListener("click", () => {
-    const prText = generateText();
-    const textField = document.getElementById("pull_request_review_body");
-    textField.value = prText;
-  });
+button.addEventListener("click", () => {
+  const prText = openViewedFiles();
+});
 
-  actionBar.appendChild(button);
-}
+buttonDiv.appendChild(button);
