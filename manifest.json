@@ -11,6 +11,7 @@
   "content_scripts": [
     {
       "js": ["scripts/button.js", "scripts/openViewedFiles.js"],
+      "css": ["scripts/styles.css"],
       "matches": ["https://www.github.com/*", "https://github.com/*"]
     }
   ],
