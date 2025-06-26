@@ -1,15 +1,22 @@
-const viewedFile = document.getElementById("manifest.json-viewed-file");
+function injectButton() {
+  const buttonDiv = document.getElementsByClassName(
+    "flex-grow-0 flex-shrink-0 pr-review-tools"
+  )[0];
+  if (buttonDiv && !document.querySelector(".open-viewed-files-btn")) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "open-viewed-files-btn";
+    button.textContent = "Open viewed files";
+    button.addEventListener("click", () => {
+      openViewedFiles();
+    });
+    buttonDiv.prepend(button);
+  }
+}
 
-const buttonDiv = document.getElementsByClassName(
-  "flex-grow-0 flex-shrink-0 pr-review-tools"
-)[0];
-const button = document.createElement("button");
-button.type = "button";
-button.className = "open-viewed-files-btn";
-button.textContent = "Open viewed files";
+injectButton();
 
-button.addEventListener("click", () => {
-  openViewedFiles();
+const observer = new MutationObserver(() => {
+  injectButton();
 });
-
-buttonDiv.prepend(button);
+observer.observe(document.body, { childList: true, subtree: true });

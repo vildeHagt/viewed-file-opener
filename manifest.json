@@ -1,6 +1,6 @@
 {
-  "name": "PR Text Generator",
-  "description": "Generates fun PR-text",
+  "name": "Viewed File Opener",
+  "description": "Opens viewed files in GitHub pull requests",
   "version": "1.0",
   "manifest_version": 3,
   "icons": {
